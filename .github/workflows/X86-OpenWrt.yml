@@ -1,10 +1,13 @@
 name: X86-OpenWrt
 
 on:
-#  schedule:
-#    - cron: 5 6 * * 0
-  watch:
-    types: started
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 jobs:
   build:
